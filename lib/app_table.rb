@@ -34,6 +34,12 @@ module AppTable
 
   # == Module included by the ActionController::Base
   module InstanceMethods
+    def table_frame
 
+    end
+
+    def table_page
+
+    end
   end
 end
