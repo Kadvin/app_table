@@ -1,13 +1,32 @@
 AppTable
-========
+======
 
-Introduction goes here.
+Introduction:
 
+Provide active-record oriented data browse mechanism, include:
 
-Example
-=======
+1. Cross Model Injection
+2. Selection Model
+3. Table Render
+  Customized Table Render
+  Customized Cell header render
+  Customized Cell body render
+  Reorder by click on table header
+  Grouping
+  Detail Information(Only one expanded)
+4. Status bar
+  Selection Model/Actions
+  Page Information
 
-Example goes here.
+Examples:
 
+  class UserGroup
+    has_one :profile
+    belongs_to :vendor
+  end
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+  class UserGroupsController < ApplicationController
+    browse_as_table
+  end
+
+Copyright (c) 2010 Kadvin, released under the MIT license
