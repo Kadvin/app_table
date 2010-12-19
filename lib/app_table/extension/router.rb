@@ -1,8 +1,8 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 module AppTable
   module Extension
+    #
+    # Define the frame and page routes for app_table rendered records
+    #
     module Router
         
     end
