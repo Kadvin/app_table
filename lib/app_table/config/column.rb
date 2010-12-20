@@ -70,7 +70,7 @@ module AppTable
         elsif([:date, :time, :datetime, :timestamp].include?(column.type))
           proc do |record|
             value = record.send(name)
-            value && distance_of_time_in_words(value)
+            value && distance_of_time_in_words(value, Time.now)
           end
         end
       end
