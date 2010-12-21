@@ -18,14 +18,10 @@ module AppTable
         # Dig the column label from resources
         column_name = name.to_s.gsub(/\./, "_") # Nested Attr: schedule_job.type -> schedule_job_type
         column_name = (/_id$/ =~ column_name) ? column_name[0..-4] : column_name # FK: schedulable_id -> schedulable
-        key = "#{active_record_class.name.underscore}.attributes.#{column_name.downcase}".to_sym
-        # Resource First
-        self.label = I18n.t(key, :raise=>true) rescue nil
+        self.label = active_record_class.human_attribute_name(column_name)
         if( self.column.nil? )
-          self.label = column_name.titleize unless self.label
           self.sortable = false
         else
-          self.label = self.column.human_name unless self.label
           self.sortable = self.column.type != :text
           self.groupby = default_column_group_by(self.column, self.name)
         end
